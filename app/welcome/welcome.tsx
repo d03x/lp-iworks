@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "~/components/Header";
 import "swiper/css";
 import "@fontsource-variable/inter";
@@ -65,20 +65,20 @@ export function Welcome() {
     <Fragment>
       <Header />
       {/* Section Hero */}
-      <section className="py-24 h-screen">
-        <div className="container mb-9 mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+      <section className="py-16 md:py-24 min-h-screen flex items-center">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
             {/* Left: Description */}
-            <div className="flex-1">
-              <h1 className="text-6xl font-extrabold mb-6">IWorks</h1>
-              <div className="mb-4 text-2xl font-semibold flex items-center h-10">
+            <div className="flex-1 w-full">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6">IWorks</h1>
+              <div className="mb-4 text-xl sm:text-2xl font-semibold flex items-center h-10">
                 Easy to&nbsp;
-                <span className="text-[#2D666D] min-w-[100px]">
+                <span className="text-[#2D666D] min-w-[80px] sm:min-w-[100px]">
                   {displayed}
                   <span className="border-r-2 border-[#2D666D] animate-pulse ml-1" />
                 </span>
               </div>
-              <p className="text-xl text-gray-700 mb-8 max-w-xl">
+              <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-8 max-w-xl">
                 Platform digital yang menghubungkan pekerja informal dengan
                 pemberi kerja secara mudah, cepat, dan aman. Temukan pekerjaan
                 atau talenta terbaik hanya dalam genggaman Anda.
@@ -91,11 +91,11 @@ export function Welcome() {
               </a>
             </div>
             {/* Right: Image */}
-            <div className="flex-1 flex justify-center">
+            <div className="flex-1 flex justify-center w-full mb-8 md:mb-0">
               <img
                 src="/mockups.png"
                 alt="iWorks App Mockups"
-                className="w-full max-h-screen"
+                className="w-full max-h-screen rounded-3xl"
               />
             </div>
           </div>
@@ -105,8 +105,8 @@ export function Welcome() {
       {/* Tujuan Kami */}
       <div className="container p-4 lg:p-0 mx-auto">
         <section>
-          <h1 className="text-6xl font-extrabold">Tujuan Kami.</h1>
-          <div className="mt-14 grid-cols-1 grid lg:grid-cols-3 gap-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold">Tujuan Kami.</h1>
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {resources.map((res, index) => (
               <div key={index}>
                 <div
@@ -114,13 +114,13 @@ export function Welcome() {
                     backgroundSize: "cover",
                     backgroundImage: `url(${res.img})`,
                   }}
-                  className="relative bg-center hover:scale-105 transition-all duration-150 h-[600px] max-h-[600px] overflow-hidden rounded-4xl"
+                  className="relative bg-center hover:scale-105 transition-all duration-150 h-72 sm:h-96 overflow-hidden rounded-3xl"
                 >
                   {/* Add a dark overlay for better text visibility */}
                   <div className="absolute inset-0 bg-black/50 z-0" />
-                  <div className="absolute p-8 text-white top-0 z-10">
-                    <h2 className="text-md mb-2 font-bold">{res.title}</h2>
-                    <p className="text-xl font-bold -tracking-tight">
+                  <div className="absolute p-6 sm:p-8 text-white top-0 z-10">
+                    <h2 className="text-lg sm:text-xl mb-2 font-bold">{res.title}</h2>
+                    <p className="text-base sm:text-lg font-bold -tracking-tight">
                       {res.desc}
                     </p>
                   </div>
@@ -132,10 +132,10 @@ export function Welcome() {
       </div>
 
       {/* Aplikasi iWorks */}
-      <section className="py-24 mt-24 bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white">
-        <div className="container mx-auto">
+      <section className="py-16 md:py-24 mt-16 md:mt-24 bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white">
+        <div className="container mx-auto px-4">
           <motion.h2
-            className="text-6xl font-extrabold text-center"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -145,7 +145,7 @@ export function Welcome() {
             Aplikasi iWorks
           </motion.h2>
           <motion.p
-            className="text-xl text-center mt-6 max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-center mt-6 max-w-2xl mx-auto"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -157,7 +157,7 @@ export function Welcome() {
           </motion.p>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 md:mt-14"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -193,9 +193,9 @@ export function Welcome() {
                 variants={fadeInUp}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-                <div className="text-5xl mb-4">{item.icon}</div>
-                <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
-                <p className="text-center">{item.desc}</p>
+                <div className="text-4xl sm:text-5xl mb-4">{item.icon}</div>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">{item.title}</h3>
+                <p className="text-center text-base sm:text-lg">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -203,10 +203,10 @@ export function Welcome() {
       </section>
 
       {/* Section Tim */}
-       <section className="py-24 bg-white text-gray-800">
-        <div className="container mx-auto">
+      <section className="py-16 md:py-24 bg-white text-gray-800">
+        <div className="container mx-auto px-4">
           <motion.h2
-            className="text-6xl font-extrabold text-center mb-12"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center mb-12"
             initial="hidden"
             whileInView="visible"
             variants={fadeInUp}
@@ -214,7 +214,7 @@ export function Welcome() {
             Tim iWorks
           </motion.h2>
           {/* Top row: 3 people, Bottom row: 2 people, centered */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
             {[
               {
                 name: "Muhammad Faiq Hudzaifah",
@@ -225,7 +225,7 @@ export function Welcome() {
               {
                 name: "Deviano Christian W.A.",
                 role: "CTO / Full Stack Developer",
-                img: "/profile.png", 
+                img: "/profile.png",
                 desc: "Bertanggung jawab atas pengembangan front-end(Web & Mobile), UI/UX, dan fungsionalitas platform.",
               },
               {
@@ -246,23 +246,23 @@ export function Welcome() {
                   <img
                     src={member.img}
                     alt={member.name}
-                    className="w-40 h-40 mx-auto rounded-full mb-4 shadow-lg transition-all duration-300 group-hover:opacity-0"
+                    className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 mx-auto rounded-full mb-4 shadow-lg transition-all duration-300 group-hover:opacity-0"
                   />
-                  <div className="transition-all duration-300 opacity-0 group-hover:opacity-100 absolute top-0 left-1/2 -translate-x-1/2 w-full h-full flex flex-col items-center justify-center bg-white rounded-3xl shadow-xl p-6 z-10">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                    <p className="text-sm text-blue-700 font-semibold mb-2">{member.role}</p>
-                    <p className="text-gray-700">{member.desc}</p>
+                  <div className="transition-all duration-300 opacity-0 group-hover:opacity-100 absolute top-0 left-1/2 -translate-x-1/2 w-full h-full flex flex-col items-center justify-center bg-white rounded-3xl shadow-xl p-4 sm:p-6 z-10">
+                    <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-1">{member.name}</h3>
+                    <p className="text-xs sm:text-sm text-blue-700 font-semibold mb-2">{member.role}</p>
+                    <p className="text-gray-700 text-xs sm:text-base">{member.desc}</p>
                   </div>
                 </div>
                 {/* Name & Role (shown when not hovered) */}
                 <div className="transition-all duration-300 group-hover:opacity-0">
-                  <h3 className="text-2xl font-bold">{member.name}</h3>
-                  <p className="text-sm text-gray-600">{member.role}</p>
+                  <h3 className="text-lg sm:text-2xl font-bold">{member.name}</h3>
+                  <p className="text-xs sm:text-sm text-gray-600">{member.role}</p>
                 </div>
               </motion.div>
             ))}
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:w-2/3 mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:w-2/3 mx-auto">
             {[
               {
                 name: "Ahmad Rafi",
@@ -288,18 +288,18 @@ export function Welcome() {
                   <img
                     src={member.img}
                     alt={member.name}
-                    className="w-40 h-40 mx-auto rounded-full mb-4 shadow-lg transition-all duration-300 group-hover:opacity-0"
+                    className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 mx-auto rounded-full mb-4 shadow-lg transition-all duration-300 group-hover:opacity-0"
                   />
-                  <div className="transition-all duration-300 opacity-0 group-hover:opacity-100 absolute top-0 left-1/2 -translate-x-1/2 w-full h-full flex flex-col items-center justify-center bg-white rounded-3xl shadow-xl p-6 z-10">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                    <p className="text-sm text-blue-700 font-semibold mb-2">{member.role}</p>
-                    <p className="text-gray-700">{member.desc}</p>
+                  <div className="transition-all duration-300 opacity-0 group-hover:opacity-100 absolute top-0 left-1/2 -translate-x-1/2 w-full h-full flex flex-col items-center justify-center bg-white rounded-3xl shadow-xl p-4 sm:p-6 z-10">
+                    <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-1">{member.name}</h3>
+                    <p className="text-xs sm:text-sm text-blue-700 font-semibold mb-2">{member.role}</p>
+                    <p className="text-gray-700 text-xs sm:text-base">{member.desc}</p>
                   </div>
                 </div>
                 {/* Name & Role (shown when not hovered) */}
                 <div className="transition-all duration-300 group-hover:opacity-0">
-                  <h3 className="text-2xl font-bold">{member.name}</h3>
-                  <p className="text-sm text-gray-600">{member.role}</p>
+                  <h3 className="text-lg sm:text-2xl font-bold">{member.name}</h3>
+                  <p className="text-xs sm:text-sm text-gray-600">{member.role}</p>
                 </div>
               </motion.div>
             ))}
@@ -308,9 +308,9 @@ export function Welcome() {
       </section>
 
       {/* Section CTA Download */}
-      <section className="py-24 bg-blue-600 text-white text-center">
+      <section className="py-16 md:py-24 bg-blue-600 text-white text-center">
         <motion.h2
-          className="text-4xl font-bold mb-6"
+          className="text-2xl sm:text-4xl font-bold mb-6"
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
@@ -318,7 +318,7 @@ export function Welcome() {
           Unduh Aplikasi iWorks Sekarang
         </motion.h2>
         <motion.p
-          className="mb-8"
+          className="mb-8 text-base sm:text-lg"
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
@@ -328,7 +328,7 @@ export function Welcome() {
           hanya dalam genggaman Anda.
         </motion.p>
         <motion.div
-          className="flex justify-center space-x-4"
+          className="flex flex-col sm:flex-row justify-center items-center gap-4"
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
@@ -350,15 +350,15 @@ export function Welcome() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+      <footer className="bg-gray-900 text-white py-8">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
           <div className="text-center md:text-left mb-4 md:mb-0">
-            <h3 className="text-2xl font-bold">iWorks</h3>
-            <p className="text-sm text-gray-400">
+            <h3 className="text-xl sm:text-2xl font-bold">iWorks</h3>
+            <p className="text-xs sm:text-sm text-gray-400">
               © {new Date().getFullYear()} iWorks. All rights reserved.
             </p>
           </div>
-          <div className="flex space-x-4">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
             <a href="#" className="hover:text-gray-300">
               Tentang Kami
             </a>
