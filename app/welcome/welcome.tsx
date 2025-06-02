@@ -23,6 +23,7 @@ export function Welcome() {
   return (
     <Fragment>
       <Header />
+      {/* Section Hero */}
       <section className="py-24">
         <div className="container mb-9 mx-auto">
           <div className="flex mb items-center justify-between">
@@ -40,6 +41,7 @@ export function Welcome() {
         </div>
       </section>
 
+      {/* Tujuan Kami */}
       <div className="container p-4 lg:p-0 mx-auto">
         <section>
           <h1 className="text-6xl font-extrabold">Tujuan Kami.</h1>
@@ -66,7 +68,7 @@ export function Welcome() {
         </section>
       </div>
 
-      {/* Section Aplikasi iWorks (Platform Pekerja-Pemberi Kerja) */}
+      {/* Aplikasi iWorks */}
       <section className="py-24 mt-24 bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white">
         <div className="container mx-auto">
           <motion.h2
@@ -87,7 +89,7 @@ export function Welcome() {
             variants={fadeInUp}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            iWorks adalah platform digital yang memudahkan pencarian dan penawaran pekerjaan bagi pekerja informal. Satu klik untuk menemukan talenta, satu klik untuk mendapatkan pekerjaan.
+            Platform digital untuk menghubungkan pekerja informal dengan pemberi kerja secara mudah dan cepat.
           </motion.p>
 
           <motion.div
@@ -105,9 +107,9 @@ export function Welcome() {
             }}
           >
             {[
-              { icon: "🔍", title: "Cari Pekerjaan", desc: "Pekerja informal dapat dengan mudah menemukan pekerjaan yang sesuai dengan keahlian mereka." },
-              { icon: "🤝", title: "Temukan Talenta", desc: "Pemberi kerja dapat mencari dan merekrut pekerja terpercaya dengan cepat." },
-              { icon: "⚡", title: "Cepat & Efisien", desc: "Semua proses berlangsung secara digital, hemat waktu, dan praktis." },
+              { icon: "🔍", title: "Cari Pekerjaan", desc: "Temukan pekerjaan yang sesuai keahlian Anda." },
+              { icon: "🤝", title: "Temukan Talenta", desc: "Rekrut pekerja terpercaya dengan cepat." },
+              { icon: "⚡", title: "Efisien", desc: "Proses mudah dan praktis secara digital." },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -122,6 +124,67 @@ export function Welcome() {
             ))}
           </motion.div>
         </div>
+      </section>
+
+      {/* Section Tim */}
+      <section className="py-24 bg-white text-gray-800">
+        <div className="container mx-auto">
+          <motion.h2 className="text-6xl font-extrabold text-center mb-12" initial="hidden" whileInView="visible" variants={fadeInUp}>
+            Tim iWorks
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { name: "Dadan Hidayat", role: "CEO & Founder", img: "https://avatars.githubusercontent.com/u/149863272?v=4" },
+              { name: "Deviano Hidayat", role: "CTO", img: "https://avatars.githubusercontent.com/u/149863272?v=4" },
+              { name: "Faiq Hidayat", role: "Head of Design", img: "https://randomuser.me/api/portraits/women/46.jpg" },
+            ].map((member, idx) => (
+              <motion.div key={idx} className="text-center" variants={fadeInUp} transition={{ duration: 0.4, delay: idx * 0.2 }}>
+                <img src={member.img} alt={member.name} className="w-40 h-40 mx-auto rounded-full mb-4" />
+                <h3 className="text-2xl font-bold">{member.name}</h3>
+                <p className="text-sm text-gray-600">{member.role}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section Pricing */}
+      <section className="py-24 bg-gray-100 text-gray-900">
+        <div className="container mx-auto">
+          <motion.h2 className="text-6xl font-extrabold text-center mb-12" initial="hidden" whileInView="visible" variants={fadeInUp}>
+            Harga & Paket
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: "Gratis", price: "Rp 0", features: ["Akses dasar", "Cari pekerjaan", "Profil terbatas"] },
+              { title: "Pro", price: "Rp 49.000/bulan", features: ["Akses penuh", "Prioritas profil", "Statistik pekerjaan"] },
+              { title: "Enterprise", price: "Hubungi Kami", features: ["Integrasi kustom", "Tim support", "Analitik mendalam"] },
+            ].map((plan, idx) => (
+              <motion.div key={idx} className="bg-white rounded-3xl shadow-lg p-6 text-center" variants={fadeInUp} transition={{ duration: 0.4, delay: idx * 0.2 }}>
+                <h3 className="text-2xl font-bold mb-2">{plan.title}</h3>
+                <p className="text-4xl font-extrabold mb-4">{plan.price}</p>
+                <ul className="mb-6">
+                  {plan.features.map((f, i) => <li key={i} className="mb-2">✅ {f}</li>)}
+                </ul>
+                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">Pilih Paket</button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section CTA Download */}
+      <section className="py-24 bg-blue-600 text-white text-center">
+        <motion.h2 className="text-4xl font-bold mb-6" initial="hidden" whileInView="visible" variants={fadeInUp}>
+          Unduh Aplikasi iWorks Sekarang
+        </motion.h2>
+        <motion.p className="mb-8" initial="hidden" whileInView="visible" variants={fadeInUp} transition={{ delay: 0.2 }}>
+          Tersedia di iOS dan Android. Dapatkan kemudahan bekerja dan merekrut hanya dalam genggaman Anda.
+        </motion.p>
+        <motion.div className="flex justify-center space-x-4" initial="hidden" whileInView="visible" variants={fadeInUp} transition={{ delay: 0.4 }}>
+          <a href="#" className="bg-white text-blue-600 px-4 py-2 rounded-lg font-bold">Download di App Store</a>
+          <a href="#" className="bg-white text-blue-600 px-4 py-2 rounded-lg font-bold">Download di Play Store</a>
+        </motion.div>
       </section>
 
       {/* Footer */}
